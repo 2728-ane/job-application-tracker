@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Application Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>Job Application Tracker</h1>
+        <p>Organize your job search in one place.</p>
+      </header>
+
+      <section id="authSection" class="card">
+        <h2 id="authTitle">Login</h2>
+        <p id="authMessage" class="message"></p>
+
+        <form id="authForm">
+          <div id="nameGroup" class="hidden">
+            <label for="name">Full name</label>
+            <input id="name" type="text" autocomplete="name" />
+          </div>
+
+          <label for="email">Email</label>
+          <input id="email" type="email" required autocomplete="email" />
+
+          <label for="password">Password</label>
+          <input id="password" type="password" required minlength="8" />
+
+          <button type="submit" id="authSubmit">Login</button>
+        </form>
+
+        <button id="toggleAuth" class="link-btn" type="button">
+          Don't have an account? Register
+        </button>
+      </section>
+
+      <section id="dashboard" class="hidden">
+        <div class="dashboard-header">
+          <h2 id="welcome">My Dashboard</h2>
+          <button id="logoutBtn" class="secondary">Logout</button>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <strong id="totalCount">0</strong><span>Total</span>
+          </div>
+          <div class="stat">
+            <strong id="appliedCount">0</strong><span>Applied</span>
+          </div>
+          <div class="stat">
+            <strong id="interviewCount">0</strong><span>Interviews</span>
+          </div>
+          <div class="stat">
+            <strong id="offerCount">0</strong><span>Offers</span>
+          </div>
+        </div>
+
+        <section class="card">
+          <h2 id="formTitle">Add Job Application</h2>
+
+          <form id="applicationForm">
+            <label for="company">Company</label>
+            <input id="company" required placeholder="e.g. Google" />
+
+            <label for="position">Position</label>
+            <input id="position" required placeholder="e.g. Junior Developer" />
+
+            <label for="status">Status</label>
+            <select id="status">
+              <option>Applied</option>
+              <option>Interview</option>
+              <option>Offer</option>
+              <option>Rejected</option>
+            </select>
+
+            <label for="date">Application date</label>
+            <input id="date" type="date" required />
+
+            <div class="form-actions">
+              <button id="saveBtn" type="submit">Save Application</button>
+              <button id="cancelEdit" type="button" class="secondary hidden">
+                Cancel Edit
+              </button>
+            </div>
+          </form>
+        </section>
+
+        <section class="card">
+          <h2>My Applications</h2>
+
+          <div class="filters">
+            <input id="search" placeholder="Search company or position" />
+            <select id="filterStatus">
+              <option value="All">All statuses</option>
+              <option>Applied</option>
+              <option>Interview</option>
+              <option>Offer</option>
+              <option>Rejected</option>
+            </select>
+          </div>
+
+          <p id="appMessage" class="message"></p>
+          <div id="applicationsList"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
